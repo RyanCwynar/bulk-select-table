@@ -3,9 +3,7 @@
     <v-main>
       <v-container>
         <v-card>
-          <v-card-title>
-            Shift + Click Bulk Select Demo
-          </v-card-title>
+          <v-card-title>Shift + Click Bulk Select Demo</v-card-title>
           <v-data-table
             v-model="selected"
             @current-items="current = $event"
@@ -16,6 +14,7 @@
             item-key="id"
             class="elevation-1"
             show-select
+            unselectable
           ></v-data-table>
         </v-card>
       </v-container>
@@ -73,3 +72,11 @@ export default {
   },
 };
 </script>
+<style scoped>
+.v-data-table {
+  user-select: none; /* CSS3 (little to no support) */
+  -ms-user-select: none; /* IE 10+ */
+  -moz-user-select: none; /* Gecko (Firefox) */
+  -webkit-user-select: none;
+}
+</style>
