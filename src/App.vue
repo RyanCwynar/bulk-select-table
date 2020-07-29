@@ -15,17 +15,6 @@
             show-select
             unselectable
           >
-            <template slot="items" slot-scope="{item, selected}">
-              <tr :active="selected" >
-                <td>
-                  <v-checkbox primary hide-details :input-value="selected"></v-checkbox>
-                </td>
-                <td class="text-xs-right">{{ item.id }}</td>
-                <td>{{ item.name }}</td>
-                <td class="text-xs-right">{{ item.calories }}</td>
-                <td class="text-xs-right">{{ item.fat }}</td>
-              </tr>
-            </template>
           </v-data-table>
         </v-card>
       </v-container>
@@ -73,9 +62,6 @@ export default {
     };
   },
   methods: {
-    clickRow(item, { isSelected, select }) {
-      select(!isSelected);
-    },
     bulkSelect({item: b, value }) {
       const { selectedRows, current, shiftKeyOn } = this;
 
@@ -98,9 +84,12 @@ export default {
 </script>
 <style>
 .noselect {
-  user-select: none; /* CSS3 (little to no support) */
-  -ms-user-select: none; /* IE 10+ */
-  -moz-user-select: none; /* Gecko (Firefox) */
-  -webkit-user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 </style>
