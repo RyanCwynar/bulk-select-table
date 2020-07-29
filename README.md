@@ -1,4 +1,5 @@
-# bulk-select-table
+# Shift + Click Bulk Select on Data Table
+This is just a simple demo that shows how to add a bulk select function to a vuetify data table.
 
 ## Project setup
 ```
